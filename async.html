@@ -9,7 +9,7 @@
                background: #292929;
           }
           h1{
-               color: aliceblue;
+               color: white;
           }
      </style>
 </head>
@@ -29,20 +29,23 @@
           }
           return color;
      }
-     console.log(myRandomColor())
+     // console.log(myRandomColor())
 
 
      let myInterval;
      const startInterval = function(){
-          // myInterval = setInterval(sayDate,1000)
           
-          myInterval = setInterval(function(){
+          if(!myInterval){
+               myInterval = setInterval(changeBG,1000)
+          }
+          function changeBG(){
                document.querySelector("body").style.backgroundColor = myRandomColor()
-          },1000)
+          }
      }
 
      const stopInterval = function(){
           clearInterval(myInterval)
+          myInterval = null;
      }
 
 
